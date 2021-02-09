@@ -1,6 +1,8 @@
-use std::fmt::Display;
+mod test;
 
+use std::fmt::Display;
 use colorful::{Color, Colorful};
+
 pub fn warn<A: Display>(msg: A) {
     let string = format!("[WARNING] {}", msg);
     println!("{}", string.color(Color::Yellow))
@@ -13,4 +15,9 @@ pub fn info<A: Display>(msg: A) {
 pub fn error<A: Display>(msg: A) {
     let string = format!("[ERROR] {}", msg);
     println!("{}", string.color(Color::Red))
+}
+
+pub fn success<A: Display>(msg: A) {
+    let string = format!("[SUCCESS] {}", msg);
+    println!("{}", string.color(Color::Green))
 }
