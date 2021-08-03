@@ -1,12 +1,11 @@
 mod test;
 
-use colorful::{Color, Colorful};
 
 #[macro_export]
 macro_rules! warn {
     ($x:expr) => {
         let string = format!("{}/{}:{} [WARNING] {}",file!(), line!(), column!(), $x);
-        println!("{}", string.color(Color::Yellow))
+        println!("\x1b[0;33m{}\x1b[0;30m", string)
     };
 }
 
@@ -14,7 +13,7 @@ macro_rules! warn {
 macro_rules! info {
     ($x:expr) => {
         let string = format!("{}/{}:{} [INFO] {}", file!(), line!(), column!(), $x);
-        println!("{}", string.color(Color::Blue))
+        println!("\x1b[0;34m{}\x1b[0;30m", string)
     };
 }
 
@@ -22,7 +21,7 @@ macro_rules! info {
 macro_rules! error {
     ($x:expr) => {
         let string = format!("{}/{}:{} [ERROR] {}", file!(), line!(), column!(), $x);
-        println!("{}", string.color(Color::Red))
+        println!("\x1b[0;31m{}\x1b[0;30m", string)
     };
 }
 
@@ -30,6 +29,6 @@ macro_rules! error {
 macro_rules! success {
     ($x:expr) => {
         let string = format!("{}/{}:{} [SUCCESS] {}", file!(), line!(), column!(), $x);
-        println!("{}", string.color(Color::Green))
+        println!("\x1b[0;32m{}\x1b[0;30m", string)
     };
 }
